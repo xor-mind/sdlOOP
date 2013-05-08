@@ -10,7 +10,6 @@ class FpsCounter
 private:
 	Text text;
 	uint fpsTime1, fpsTime2, fpsCounter, fpsDisplay;
-
 public:
 	void Init( std::string& fontName ) 
 	{
@@ -23,7 +22,6 @@ public:
 
 		fpsTime1  = SDL_GetTicks();
 	}
-
 	void Logic()
 	{
 		/* calculate time since last update */
@@ -37,7 +35,6 @@ public:
 			fpsCounter = 0;
 		}
 	}
-
 	void Render( SDL_Surface* screen, int x, int y )
 	{
 		fpsCounter++;
@@ -48,7 +45,7 @@ public:
 			text.Render(screen, 0, 0);
 		}
 	}
-
+	uint Count() const { return fpsDisplay; }
 };
 
 #endif
