@@ -27,7 +27,7 @@ namespace FpsCountTest
 			{
 				return false;
 			}
-			fpsCounter.Init(std::string( "consola.ttf" ));
+			fpsCounter.Init(std::string( "data/consola.ttf" ));
 			return true;
 		}
 
