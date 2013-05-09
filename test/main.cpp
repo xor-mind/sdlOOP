@@ -28,6 +28,7 @@ namespace FpsCountTest
 				return false;
 			}
 			fpsCounter.Init(std::string( "consola.ttf" ));
+			return true;
 		}
 
 		void Logic() override
