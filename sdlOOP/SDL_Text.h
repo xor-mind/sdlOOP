@@ -43,6 +43,14 @@ public:
 		//text_blended = TTF_RenderText_Blended(font, text.c_str(), red);
 		return true;
 	}
+	bool Init( int r, int g, int b, const std::string& fontName, int size )
+	{
+		Init();
+		SDL_Color c = { r, g, b };
+		SetColor(c);
+		OpenFont( fontName, size );	
+		return true;
+	}
 	bool OpenFont(std::string fontName, int pointSize)
 	{
 		if (!(font = TTF_OpenFont(fontName.c_str(), pointSize)) ) {
@@ -55,11 +63,16 @@ public:
 	{
 		this->c = c;
 	}
-	SDL_Surface* CreateSolid(std::string& s)
+	SDL_Surface* CreateSolid(const std::string& s)
 	{
 		if ( surface != nullptr )
 			SDL_FreeSurface( surface );
 		return surface = TTF_RenderText_Solid(font, s.c_str(), c);
+	}
+	void Render(SDL_Surface* s, int x, int y, const std::string& str )
+	{
+		CreateSolid( str );
+		Render( s, x, y );
 	}
 	void Render(SDL_Surface* s, int x, int y)
 	{

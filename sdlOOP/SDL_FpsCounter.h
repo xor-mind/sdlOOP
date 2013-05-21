@@ -16,9 +16,9 @@ public:
 		fpsCounter = fpsDisplay = 0;
 
 		text.Init();
-		SDL_Color c = {255,255,255};
+		SDL_Color c = { 255,255,255 };
 		text.SetColor(c);
-		text.OpenFont( fontName, 14);	
+		text.OpenFont( fontName, 14 );	
 
 		fpsTime1  = SDL_GetTicks();
 	}

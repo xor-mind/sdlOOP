@@ -3,7 +3,10 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
-#include <functional>
+#include <vector>
+//#include <functional>
+
+typedef std::vector<SDL_Surface*> Surfaces;
 
 class Surface 
 {
@@ -26,7 +29,7 @@ class Surface
 			return Surf_Return;
 		}
 
-		static SDL_Surface* PngLoad(char* File)
+		static SDL_Surface* PngLoad( char* File, bool alpha = false )
 		{
 			SDL_Surface* Surf_Temp = NULL;
 			SDL_Surface* Surf_Return = NULL;
@@ -34,8 +37,16 @@ class Surface
 			if((Surf_Temp = IMG_Load(File)) == NULL) {
 				return NULL;
 			}
- 
-			Surf_Return = SDL_DisplayFormat(Surf_Temp);
+			
+			if ( !alpha )
+			{
+				Surf_Return = SDL_DisplayFormat(Surf_Temp);
+			}
+			else
+			{
+				Surf_Return = SDL_DisplayFormatAlpha(Surf_Temp);
+			}
+
 			SDL_FreeSurface(Surf_Temp);
  
 			return Surf_Return;
