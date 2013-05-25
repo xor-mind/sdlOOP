@@ -82,7 +82,7 @@ public:
 	{
 		(s == true) ? TTF_SetFontKerning(font, 1) : TTF_SetFontKerning(font, 0);
 	}
-	std::pair<int,int> TextSize(std::string& s)
+	std::pair<int,int> TextSize(const std::string& s)
 	{
 		std::pair<int,int> p;
 		TTF_SizeText(font, s.c_str(), &p.first, &p.second);
