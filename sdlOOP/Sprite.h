@@ -14,7 +14,6 @@ public:
 
 	bool isBlinking;
 	uint blinkingDelay, blinkingStartTime;
-
 public:
 
 	Sprite() : currentFrame( 0 ), blinkingDelay(0), isBlinking( false ) 
